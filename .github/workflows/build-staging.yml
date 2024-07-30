@@ -1,0 +1,58 @@
+name: Build Staging (Android and iOS)
+
+env: 
+  APK_PATH: android/app/build/outputs/apk/release/app-release.apk
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  run-checks:
+    uses: ./.github/workflows/pull-request-check.yml
+
+  build-android:
+    needs: run-checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./android
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Set up Java JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Install Packages
+        run: yarn install
+
+      - name: Decode Keystore
+        run: echo "${{ secrets.ANDROID_UPLOAD_KEY_BASE64 }}" | base64 --decode > app/upload.jks
+
+      - name: Make Gradlew Executable
+        run: chmod +x ./gradlew
+
+      - name: Build Release
+        run: ./gradlew assembleRelease
+        env: 
+          TODOWY_STORE_PASSWORD: "${{ secrets.TODOWY_STORE_PASSWORD }}"
+          TODOWY_ALIAS_PASSWORD: "${{ secrets.TODOWY_ALIAS_PASSWORD }}"
+          TODOWY_KEY_PASSWORD: "${{ secrets.TODOWY_KEY_PASSWORD }}"
+
+      - name: Upload APK to Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release.apk
+          path: "${{ env.APK_PATH }}"
+          retention-days: 7
+
