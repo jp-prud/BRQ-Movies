@@ -1,18 +1,16 @@
-import { useListFavoriteMovies, useListMovies, useSignOut } from "@useCases"
+import { useListFavoriteMovies, useListMovies, useSignOut } from '@useCases';
 
 export function useHomeScreen() {
-  const { 
-    moviesData, refetch
-  } = useListMovies()
-  
-  const { favoriteMoviesData } = useListFavoriteMovies()
+  const { moviesData, refetch } = useListMovies();
 
-  const { signOut } = useSignOut()
+  const { favoriteMoviesData } = useListFavoriteMovies();
+
+  const { signOut } = useSignOut();
 
   return {
     moviesData,
     favoriteMoviesData,
     signOut,
-    refetch
-  }
+    refetch,
+  };
 }

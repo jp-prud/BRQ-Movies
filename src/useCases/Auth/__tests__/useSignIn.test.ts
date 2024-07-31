@@ -1,11 +1,11 @@
 import { AuthService, INVALID_CREDENTIALS_ERROR_MESSAGE } from '@services';
-
 import {
   authCredentials,
   renderHook,
   signInCredentials,
   waitFor,
 } from '@tests';
+
 import { useSignIn } from '../useSignIn/useSignIn';
 
 const mockedSignIn = jest.fn();
@@ -37,18 +37,16 @@ jest.mock('@services', () => {
 
 describe('useSignIn', () => {
   it('saves credentials if the sign-in successfully', async () => {
-    jest
-      .spyOn(AuthService(), 'signIn')
-      .mockResolvedValueOnce(authCredentials);
+    jest.spyOn(AuthService(), 'signIn').mockResolvedValueOnce(authCredentials);
 
-    const {result} = renderHook(() =>
+    const { result } = renderHook(() =>
       useSignIn({
         onSuccess: mockedOnSuccess,
       }),
     );
 
     result.current.signIn(signInCredentials);
-   
+
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
     expect(mockedSaveCredentials).toHaveBeenCalledWith(authCredentials);
@@ -63,14 +61,18 @@ describe('useSignIn', () => {
       .mockRejectedValue(new Error('Invalid Credentials'));
 
     try {
-      const { result } = renderHook(() => useSignIn({
-        errorMessage: INVALID_CREDENTIALS_ERROR_MESSAGE,
-        onError: mockedOnError
-      }));
+      const { result } = renderHook(() =>
+        useSignIn({
+          errorMessage: INVALID_CREDENTIALS_ERROR_MESSAGE,
+          onError: mockedOnError,
+        }),
+      );
 
       result.current.signIn(signInCredentials);
     } catch (error) {
-      expect(mockedOnError).toHaveBeenCalledWith(INVALID_CREDENTIALS_ERROR_MESSAGE);
+      expect(mockedOnError).toHaveBeenCalledWith(
+        INVALID_CREDENTIALS_ERROR_MESSAGE,
+      );
       expect(mockedOnError).toHaveBeenCalledTimes(1);
     }
   });

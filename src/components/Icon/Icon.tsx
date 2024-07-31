@@ -18,7 +18,7 @@ import {
   HeartIcon,
   HouseFillIcon,
   HouseIcon,
-  PlusIcon
+  PlusIcon,
 } from '../../assets/icons';
 import { Box } from '../Box/Box';
 
@@ -72,7 +72,7 @@ const iconRegistry = {
   heart: HeartIcon,
   heartFill: HeartFillIcon,
   bullet: BulletIcon,
-  arrowReturn: ArrowReturnIcon
+  arrowReturn: ArrowReturnIcon,
 };
 
 type IconType = typeof iconRegistry;

@@ -1,10 +1,7 @@
 import { ThemeColors } from '../../theme/theme';
 import { TouchableOpacityBoxProps } from '../Box/Box';
 
-export type ButtonPreset =
-  | 'primary'
-  | 'secondary'
-  | 'ghost';
+export type ButtonPreset = 'primary' | 'secondary' | 'ghost';
 
 interface ButtonUI {
   container: TouchableOpacityBoxProps;
@@ -25,7 +22,7 @@ export const buttonPresets: Record<
         backgroundColor: 'primary',
       },
       content: 'backgroundContrast',
-      icon: 'backgroundContrast', 
+      icon: 'backgroundContrast',
     },
     disabled: {
       container: {

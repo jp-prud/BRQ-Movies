@@ -1,7 +1,6 @@
-import { MovieProps, MoviePropsAPI } from "@types";
-    
-import { API_IMAGE_URL } from "@env";
-    
+import { API_IMAGE_URL } from '@env';
+import { MovieProps, MoviePropsAPI } from '@types';
+
 export function MovieMapper() {
   function toPresentation(movie: MoviePropsAPI): MovieProps {
     return {
@@ -20,10 +19,10 @@ export function MovieMapper() {
       popularity: movie.popularity,
       video: movie.video,
       voteCount: movie.vote_count,
-    }
+    };
   }
 
   return {
-    toPresentation
-  }
+    toPresentation,
+  };
 }

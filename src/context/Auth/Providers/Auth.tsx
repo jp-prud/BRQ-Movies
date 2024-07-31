@@ -1,15 +1,16 @@
 import { createContext, useCallback, useEffect, useState } from 'react';
 
 import { AuthServiceProps } from '@context';
+import { registerInterceptor } from '@services';
 import { AuthCredentials } from '@types';
 
-import { registerInterceptor } from '@services';
 import { authCredentialsStorage } from '../authCredentialsStorage';
 
 export const AuthContext = createContext({} as AuthServiceProps);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [authCredentials, setAuthCredentials] = useState<AuthCredentials | null>(null);
+  const [authCredentials, setAuthCredentials] =
+    useState<AuthCredentials | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   const loadCredentials = useCallback(async () => {
@@ -49,8 +50,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       saveCredentials,
     });
 
-    return interceptor
-  }, [authCredentials])
+    return interceptor;
+  }, [authCredentials]);
 
   return (
     <AuthContext.Provider

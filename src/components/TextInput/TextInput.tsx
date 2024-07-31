@@ -56,11 +56,7 @@ export function TextInput({
   return (
     <Pressable onPress={handleClickInputFocus}>
       <Box g="s4">
-        {label && (
-          <Text semiBold>
-            {label}
-          </Text>
-        )}
+        {label && <Text semiBold>{label}</Text>}
 
         <Box {...$textInputContainer} style={[boxContainerStyles]}>
           {prefix && <Text>{prefix}</Text>}
@@ -73,11 +69,7 @@ export function TextInput({
             {...rNTextInputProps}
           />
 
-          {sufix && (
-            <Text ml="s12">
-              {sufix}
-            </Text>
-          )}
+          {sufix && <Text ml="s12">{sufix}</Text>}
           {RightComponent && <Box>{RightComponent}</Box>}
         </Box>
 
@@ -90,9 +82,7 @@ export function TextInput({
         )}
 
         {description && !errorMessage && (
-          <Text preset="paragraphSmall">
-            {description}
-          </Text>
+          <Text preset="paragraphSmall">{description}</Text>
         )}
       </Box>
     </Pressable>
@@ -106,5 +96,5 @@ const $textInputStyle: TextStyle = {
   flexGrow: 1,
   flexShrink: 1,
   paddingRight: 16,
-  color: 'white'
+  color: 'white',
 };

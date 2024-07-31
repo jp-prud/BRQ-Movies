@@ -1,5 +1,5 @@
-import { MetaDataPage, Page } from '@types';
 import { renderHook, waitFor } from '@tests';
+import { MetaDataPage, Page } from '@types';
 
 import { usePaginatedList } from '../usePaginatedList';
 
@@ -18,14 +18,16 @@ async function getList(page: number): Promise<Page<string>> {
     total: 6,
   };
 
-  return Promise.resolve({data, meta});
+  return Promise.resolve({ data, meta });
 }
 
 const mockedGetList = jest.fn(getList);
 
 describe('usePaginatedList', () => {
   it('returns all pages together and stops fetching if there are no more page', async () => {
-    const {result} = renderHook(() => usePaginatedList(['key'], mockedGetList));
+    const { result } = renderHook(() =>
+      usePaginatedList(['key'], mockedGetList),
+    );
 
     await waitFor(() => expect(result.current.list).toStrictEqual(page1));
 

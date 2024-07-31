@@ -19,15 +19,18 @@ interface PaginatedListOption {
 
 export function usePaginatedList<Data>(
   queryKey: readonly unknown[],
-  getList: (page: number, params?: Record<string, string>) => Promise<Page<Data>>,
+  getList: (
+    page: number,
+    params?: Record<string, string>,
+  ) => Promise<Page<Data>>,
   options?: PaginatedListOption,
 ): UsePaginatedListResult<Data> {
   const [list, setList] = useState<Data[]>([]);
 
   const query = useInfiniteQuery({
     queryKey,
-    queryFn: ({pageParam = 1}) => getList(pageParam),
-    getNextPageParam: ({meta}) =>
+    queryFn: ({ pageParam = 1 }) => getList(pageParam),
+    getNextPageParam: ({ meta }) =>
       meta.hasNextPage ? meta.currentPage + 1 : undefined,
     enabled: options?.enabled,
     staleTime: options?.staleTime,

@@ -9,7 +9,6 @@ module.exports = {
       { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
     ],
   },
-
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
@@ -52,4 +51,5 @@ module.exports = {
       },
     },
   ],
+  ignorePatterns: ['**/__tests__/*'],
 };

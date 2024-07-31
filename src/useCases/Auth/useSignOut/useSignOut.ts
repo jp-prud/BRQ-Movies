@@ -1,13 +1,13 @@
-import { useAuthContext } from "@context";
+import { useAuthContext } from '@context';
 
 export function useSignOut() {
-  const { removeCredentials } = useAuthContext() 
+  const { removeCredentials } = useAuthContext();
 
   function signOut() {
     removeCredentials();
   }
 
   return {
-    signOut
-  }
+    signOut,
+  };
 }

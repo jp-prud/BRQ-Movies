@@ -5,26 +5,23 @@ import {
   Button,
   FormPasswordInput,
   FormTextInput,
-  Screen
+  Screen,
 } from '@components';
 import { AuthScreenProps } from '@routes';
 
 import { images } from '../../../assets';
+
 import { useSignInScreen } from './useSignInScreen';
 
-export function SignInScreen({ navigation }: AuthScreenProps<'SignInScreen'>) {
+export function SignInScreen({}: AuthScreenProps<'SignInScreen'>) {
   const { control, onSubmit, isSubmitting, isDirty } = useSignInScreen();
 
   return (
     <Screen>
       <Box justifyContent="center" flex={1}>
         <Box>
-          <Box alignSelf='center' mb="s64">
-            <Image
-              width={224}
-              height={224}
-              source={images.logo}
-            />
+          <Box alignSelf="center" mb="s64">
+            <Image width={224} height={224} source={images.logo} />
           </Box>
 
           <Box gap="s48">
@@ -37,25 +34,25 @@ export function SignInScreen({ navigation }: AuthScreenProps<'SignInScreen'>) {
             <FormPasswordInput
               control={control}
               name="password"
-              keyboardType='number-pad'
+              keyboardType="number-pad"
               label="Password"
               placeholder="Insira sua senha"
             />
           </Box>
 
           <Box mt="s48" gap="s16">
-            <Button 
-              text="Entrar" 
-              onPress={onSubmit} 
-              disabled={isSubmitting || !isDirty} 
-              loading={isSubmitting} 
+            <Button
+              text="Entrar"
+              onPress={onSubmit}
+              disabled={isSubmitting || !isDirty}
+              loading={isSubmitting}
             />
 
-            <Button 
-              text="Esquecia a senha" 
+            <Button
+              text="Esquecia a senha"
               preset="ghost"
-              disabled={isSubmitting} 
-              loading={isSubmitting} 
+              disabled={isSubmitting}
+              loading={isSubmitting}
             />
           </Box>
         </Box>
