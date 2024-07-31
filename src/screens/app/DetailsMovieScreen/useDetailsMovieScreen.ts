@@ -1,17 +1,10 @@
-import { MovieProps } from "@types";
-import { useGetMovieById, useGetSimilars } from "@useCases";
+import { MovieProps } from '@types';
+import { useGetMovieById, useGetSimilars } from '@useCases';
 
 export function useDetailsMovieScreen(movieId: MovieProps['id']) {
-  const { 
-    movie,
-    isError,
-    isLoading
-  } = useGetMovieById(movieId);
+  const { movie, isError, isLoading } = useGetMovieById(movieId);
 
-  const {
-    similars,
-    isLoading: isLoadingSimilars,
-  } = useGetSimilars(movieId);
+  const { similars, isLoading: isLoadingSimilars } = useGetSimilars(movieId);
 
   return {
     movie,

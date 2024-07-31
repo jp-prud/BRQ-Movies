@@ -28,9 +28,7 @@ function AppWithProviders({ children }: { children: React.ReactNode }) {
         <SafeAreaProvider>
           <GestureHandlerRootView style={{ flex: 1 }}>
             <ThemeProvider theme={theme}>
-              <ToastProvider>
-                {children}
-              </ToastProvider>
+              <ToastProvider>{children}</ToastProvider>
             </ThemeProvider>
           </GestureHandlerRootView>
         </SafeAreaProvider>

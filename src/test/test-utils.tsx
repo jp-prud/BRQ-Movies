@@ -1,9 +1,12 @@
 import React, { ReactElement } from 'react';
 
+import { AuthProvider } from '@context';
+import { NavigationContainer } from '@react-navigation/native';
+import { ThemeProvider } from '@shopify/restyle';
 import {
   QueryClient,
   QueryClientConfig,
-  QueryClientProvider
+  QueryClientProvider,
 } from '@tanstack/react-query';
 import {
   RenderHookOptions,
@@ -11,12 +14,9 @@ import {
   render,
   renderHook,
 } from '@testing-library/react-native';
-
-import { AuthProvider } from '@context';
-import { NavigationContainer } from '@react-navigation/native';
-import { ThemeProvider } from '@shopify/restyle';
-import { theme } from '@theme';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+import { theme } from '@theme';
 
 const queryClientConfig: QueryClientConfig = {
   defaultOptions: {
@@ -89,4 +89,3 @@ function customRenderHook<Result, Props>(
 
 export * from '@testing-library/react-native';
 export { customRender as render, customRenderHook as renderHook };
-

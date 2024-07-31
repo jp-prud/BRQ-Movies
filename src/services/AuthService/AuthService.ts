@@ -1,13 +1,9 @@
-import {
-  AuthCredentials,
-  SignInProps,
-  StorageKeys
-} from '@types';
-
+import { AuthCredentials, SignInProps, StorageKeys } from '@types';
 import { isAdminSignIn } from '@utils';
+
 import { storage } from '../StorageService/storage';
 
-export const INVALID_CREDENTIALS_ERROR_MESSAGE = 'Invalid credentials'
+export const INVALID_CREDENTIALS_ERROR_MESSAGE = 'Invalid credentials';
 
 export function AuthService() {
   const AUTH_KEY = StorageKeys.Auth;
@@ -15,7 +11,7 @@ export function AuthService() {
   async function signIn(credentials: SignInProps): Promise<AuthCredentials> {
     if (isAdminSignIn(credentials)) {
       return {
-        username: credentials.username
+        username: credentials.username,
       };
     }
 
@@ -24,7 +20,7 @@ export function AuthService() {
 
   async function save(authCredentials: AuthCredentials): Promise<void> {
     await storage.setItem(AUTH_KEY, authCredentials);
-  } 
+  }
 
   async function load(): Promise<AuthCredentials | null> {
     const authCredentials = await storage.getItem<AuthCredentials>(AUTH_KEY);

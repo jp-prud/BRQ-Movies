@@ -1,8 +1,6 @@
-import { MetaDataPage, MetaDataPageAPI, Page, PageAPI } from "@types";
+import { MetaDataPage, MetaDataPageAPI, Page, PageAPI } from '@types';
 
 export function APIMapper() {
-  function toDomain() { }
-
   function toMetaDataPage(meta: MetaDataPageAPI): MetaDataPage {
     return {
       currentPage: meta.page,
@@ -27,5 +25,5 @@ export function APIMapper() {
   return {
     toMetaDataPage,
     toPageModel,
-  }
+  };
 }

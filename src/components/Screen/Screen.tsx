@@ -1,7 +1,12 @@
+import { KeyboardAvoidingView, Platform } from 'react-native';
+
 import { ActivityIndicator, Box, BoxProps } from '@components';
 import { useAppSafeArea, useAppTheme } from '@hooks';
-import { KeyboardAvoidingView, Platform } from 'react-native';
-import { ScrollableViewContainer, ViewContainer } from './components/ScreenContainers';
+
+import {
+  ScrollableViewContainer,
+  ViewContainer,
+} from './components/ScreenContainers';
 import { ScreenHeader } from './components/ScreenHeader';
 
 export interface ScreenProps extends BoxProps {
@@ -36,7 +41,8 @@ export function Screen({
 }: ScreenProps) {
   const { top, bottom } = useAppSafeArea();
   const { colors } = useAppTheme();
-  const Container = scrollable && !isLoading ? ScrollableViewContainer : ViewContainer;
+  const Container =
+    scrollable && !isLoading ? ScrollableViewContainer : ViewContainer;
 
   const renderLoadingScreenState = () => (
     <Box alignItems="center" justifyContent="center">
@@ -45,23 +51,33 @@ export function Screen({
   );
 
   const renderContent = () => {
-    if (isLoading) return renderLoadingScreenState();
-    if (isError) return renderErrorComponent;
+    if (isLoading) {
+      return renderLoadingScreenState();
+    }
+    if (isError) {
+      return renderErrorComponent;
+    }
     return children;
   };
 
   return (
     <KeyboardAvoidingView
-      style={{ flex: 1, backgroundColor: colors.background, position: 'relative' }}
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-    >
+      style={{
+        flex: 1,
+        backgroundColor: colors.background,
+        position: 'relative',
+      }}
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
       <Container backgroundColor={colors.background}>
         <Box
           flex={1}
           justifyContent={isLoading || isError ? 'center' : 'flex-start'}
-          style={{ paddingTop: top, paddingBottom: bottom, paddingHorizontal: HORIZONTAL_PADDING }}
-          {...boxProps}
-        >
+          style={{
+            paddingTop: top,
+            paddingBottom: bottom,
+            paddingHorizontal: HORIZONTAL_PADDING,
+          }}
+          {...boxProps}>
           {!isLoading && (title || canGoBack) && (
             <ScreenHeader
               titleComponent={titleComponent}
@@ -76,8 +92,12 @@ export function Screen({
 
       {FooterComponent && !isLoading && !isError && (
         <Box
-          style={{ paddingBottom: bottom, paddingHorizontal: HORIZONTAL_PADDING, backgroundColor: colors.background, ...footerContainerStyle }}
-        >
+          style={{
+            paddingBottom: bottom,
+            paddingHorizontal: HORIZONTAL_PADDING,
+            backgroundColor: colors.background,
+            ...footerContainerStyle,
+          }}>
           {FooterComponent}
         </Box>
       )}

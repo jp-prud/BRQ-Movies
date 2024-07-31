@@ -1,4 +1,4 @@
-import { MovieProps, MoviePropsAPI, PageAPI } from "@types"
+import { MovieProps, MoviePropsAPI, PageAPI } from '@types';
 
 const MovieAPI: MoviePropsAPI = {
   id: 1,
@@ -8,7 +8,10 @@ const MovieAPI: MoviePropsAPI = {
   backdrop_path: 'Movie Backdrop Path',
   vote_average: 10,
   release_date: '2021-01-01',
-  genres: [{ id: 1, name: 'Genre 1' }, { id: 2, name: 'Genre 2' }],
+  genres: [
+    { id: 1, name: 'Genre 1' },
+    { id: 2, name: 'Genre 2' },
+  ],
   video: false,
   adult: false,
   genre_ids: [1, 2],
@@ -16,7 +19,7 @@ const MovieAPI: MoviePropsAPI = {
   original_title: 'Movie Original Title',
   popularity: 10,
   vote_count: 100,
-}
+};
 
 const Movie: MovieProps = {
   id: 1,
@@ -26,7 +29,10 @@ const Movie: MovieProps = {
   backdropPath: 'Movie Backdrop Path',
   voteAverage: 10,
   releaseDate: '2021-01-01',
-  genres: [{ id: 1, name: 'Genre 1' }, { id: 2, name: 'Genre 2' }],
+  genres: [
+    { id: 1, name: 'Genre 1' },
+    { id: 2, name: 'Genre 2' },
+  ],
   video: false,
   adult: false,
   genreIds: [1, 2],
@@ -34,23 +40,23 @@ const Movie: MovieProps = {
   originalTitle: 'Movie Original Title',
   popularity: 10,
   voteCount: 100,
-}
+};
 
-const MoviesListAPI: MoviePropsAPI[] = [MovieAPI, MovieAPI, MovieAPI]
+const MoviesListAPI: MoviePropsAPI[] = [MovieAPI, MovieAPI, MovieAPI];
 
-const MoviesList: MovieProps[] = [Movie, Movie, Movie]
+const MoviesList: MovieProps[] = [Movie, Movie, Movie];
 
 const MoviesAPIListResponse: PageAPI<MoviePropsAPI> = {
   page: 1,
   results: MoviesListAPI,
   total_pages: 1,
   total_results: 3,
-}
+};
 
 export const mockedMoviesData = {
   MovieAPI,
   MoviesListAPI,
   Movie,
   MoviesList,
-  MoviesAPIListResponse
-}
+  MoviesAPIListResponse,
+};
