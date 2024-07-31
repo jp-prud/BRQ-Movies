@@ -25,7 +25,7 @@ O projeto foi visa atender os seguintes requisitos:
 
 ## Entrega - Screenshots
 
-| ![Page1](./.github/resources/Spash.png)  | ![Page2](./.github/resources/Home.png) | ![Page3](./.github/resources/Details.png) | ![Page4](./.github/resources/Favs.png) | ![Page5](./.github/resources/SignIn.png) |
+| ![Page1](./.github/resources/Splash.png)  | ![Page2](./.github/resources/Home.png) | ![Page3](./.github/resources/Details.png) | ![Page4](./.github/resources/Favs.png) | ![Page5](./.github/resources/SignIn.png) |
 |:---:|:---:|:---:|:---:|:---:|
 | Splash Screen | Home | Details | Favs | SignIn |
 
@@ -34,8 +34,8 @@ O projeto foi visa atender os seguintes requisitos:
 
 Exemplificação do que foi desenvolvido a nível de arquitetura.
 
-| ![Arquitetura](./.github/resources/Spash.png) |
-|:---:|:---:|:---:|:---:|:---:|
+| ![Arquitetura](./.github/resources/Arquitetura.png) |
+|:---:|
 | Arquitetura |
 
 ## Bibliotecas Utilizadas
