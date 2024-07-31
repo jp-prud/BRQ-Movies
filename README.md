@@ -30,6 +30,17 @@ O projeto foi visa atender os seguintes requisitos:
 | Splash Screen | Home | Details | Favs | SignIn |
 
 
+## Implementação extra
+
+- Busca infinita
+   - Para uma melhor otimização da projeto, a home sofreu uma alteração, onde busca-se a lista de filmes "paginada", obtendo os 20 primeiros items e, conforme navegação, obtem-se mais dados.
+
+- Adicionar aos favoritos
+   - Criou-se um componene flexível para adicionar o filme aos favoritos, este item pode ser usado em qualquer tela, desde que receba o `movieId`.
+
+- Similares
+   - Para exemplificar uma implementação nova, foi adicionada a seção de "similares" na página do filme.
+
 ## Arquitetura
 
 Exemplificação do que foi desenvolvido a nível de arquitetura.
@@ -50,6 +61,7 @@ Durante o desenvolvimento do projeto, as seguintes bibliotecas foram utilizadas 
 -  react-query: Gerenciamento de estado e cache de dados.
 -  react-native-svg: Renderizar  SVG na aplicação.
 -  react-hook-form: Gerenciar formulários de maneira eficiente.
+-  mmkv: Gerenciar localstorage,
 
 ## Instalação
 
