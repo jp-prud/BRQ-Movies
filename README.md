@@ -1,79 +1,89 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+<h1 align="center">BRQ Movies 🎥</h1>
 
-# Getting Started
+<p align="center">App criado para conhecer todas as novidades sobre cinema 🎞️</p>
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Sobre o App
+- O aplicativo foi construído utilizando padrões de arquitetura limpa e modularizada, visando o projeto ser escalavel. [The Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 
-## Step 1: Start the Metro Server
+## Requisitos
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+O projeto foi visa atender os seguintes requisitos:
 
-To start Metro, run the following command from the _root_ of your React Native project:
+- Tela de Login:
+   - A tela de login permite o acesso à aplicação com uma combinação específica de login/senha: user/123.
+   - Foram implementadas validações de campos obrigatórios no login, incluindo a obrigatoriedade de uma senha numérica.
+
+- Tela de Filmes:
+   - A tela de filmes possui 2 abas, conforme o protótipo.
+
+- Tela de Detalhes do Filme:
+   - Existe a possibilidade de marcar filmes como favoritos, sendo essa funcionalidade um plus.
+   - Exibe detalhes do filme como sinopse, popularidade, nota, data de lançamento e votos.
+
+- Tratamento de Erros:
+   - O aplicativo lida adequadamente com erros de indisponibilidade de internet ou erros na API.
+
+## Entrega - Screenshots
+
+| ![Page1](./.github/resources/Spash.png)  | ![Page2](./.github/resources/Home.png) | ![Page3](./.github/resources/Details.png) | ![Page4](./.github/resources/Favs.png) | ![Page5](./.github/resources/SignIn.png) |
+|:---:|:---:|:---:|:---:|:---:|
+| Splash Screen | Home | Details | Favs | SignIn |
+
+
+## Arquitetura
+
+Exemplificação do que foi desenvolvido a nível de arquitetura.
+
+| ![Arquitetura](./.github/resources/Spash.png) |
+|:---:|:---:|:---:|:---:|:---:|
+| Arquitetura |
+
+## Bibliotecas Utilizadas
+
+Durante o desenvolvimento do projeto, as seguintes bibliotecas foram utilizadas para aprimorar a funcionalidade e a aparência da aplicação:
+
+-  react-navigation: Responsável pela navegação e gerenciar as transições entre telas.
+-  react-native-mmkv: Armazenamento de dados de maneira eficiente e segura.
+-  shopify-restyle: Estilização de componentes, seguindo padrões reutilizáveis.
+-  zod: Utilizada para validação de dados, garantindo a integridade das informações.
+-  react-native-reanimated: Animações.
+-  react-query: Gerenciamento de estado e cache de dados.
+-  react-native-svg: Renderizar  SVG na aplicação.
+-  react-hook-form: Gerenciar formulários de maneira eficiente.
+
+## Instalação
+
+Para realizar a instalação do projeto, siga os passos abaixo:
 
 ```bash
-# using npm
-npm start
+# Baixe este repositório ou clone pelo Git usando o comando:
+$ git clone https://github.com/jp-prud/BRQ-Movies
 
-# OR using Yarn
-yarn start
+# Acesse a pasta do projeto
+$ cd BRQ-Movies
+
+# instale as dependencias
+$ yarn install
+      ou
+$ npm install
+
+# Inicie o Projeto
+$ yarn start
+      ou
+$ npm run start
 ```
 
-## Step 2: Start your Application
+## Arquivo .env
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+Antes de executar o projeto, você precisará criar um arquivo .env na raiz do projeto com as seguintes variáveis de ambiente:
 
-### For Android
-
-```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
+```
+ENV = "development",
+API_URL = URL_DA_API_MOVIE_DB
+API_KEY = CHAVE_DA_API_MOVIE_DB
+API_IMAGE_URL = PATH_IMAGE
+API_ACCOUNT_ID = TOKEN_DA_API_MOVIE_DB
+ADMIN_USERNAME = SEU_ADMIN_USERNAME -> BRQ: "user"
+ADMIN_PASSWORD = SUA_ADMIN_PASSWORD -> BRQ: "123"
 ```
 
-### For iOS
-
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
