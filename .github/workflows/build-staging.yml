@@ -45,9 +45,9 @@ jobs:
       - name: Build Release
         run: ./gradlew assembleRelease
         env: 
-          TODOWY_STORE_PASSWORD: "${{ secrets.TODOWY_STORE_PASSWORD }}"
-          TODOWY_ALIAS_PASSWORD: "${{ secrets.TODOWY_ALIAS_PASSWORD }}"
-          TODOWY_KEY_PASSWORD: "${{ secrets.TODOWY_KEY_PASSWORD }}"
+          BRQ_STORE_PASSWORD: "${{ secrets.BRQ_STORE_PASSWORD }}"
+          BRQ_ALIAS_PASSWORD: "${{ secrets.BRQ_ALIAS_PASSWORD }}"
+          BRQ_KEY_PASSWORD: "${{ secrets.BRQ_KEY_PASSWORD }}"
 
       - name: Upload APK to Artifact
         uses: actions/upload-artifact@v4
