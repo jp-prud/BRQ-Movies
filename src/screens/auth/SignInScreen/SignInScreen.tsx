@@ -37,6 +37,7 @@ export function SignInScreen({ navigation }: AuthScreenProps<'SignInScreen'>) {
             <FormPasswordInput
               control={control}
               name="password"
+              keyboardType='number-pad'
               label="Password"
               placeholder="Insira sua senha"
             />

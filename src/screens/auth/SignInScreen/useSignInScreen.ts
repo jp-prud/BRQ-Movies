@@ -21,10 +21,8 @@ export function useSignInScreen() {
   });
 
   const { signIn } = useSignIn({
-    errorMessage: 'An error occurred while login in',
     onError: (error) => {
-      const { message } = error
-      showToast({ type: 'info', message });
+      showToast({ type: 'info', message: 'An error occurred while login in'});
     }
   })
 

@@ -1,12 +1,13 @@
-import { AuthCredentials, env } from '@types';
+import { AuthCredentials } from '@types';
+import { API_URL, API_KEY } from '@env'
 import axios from 'axios';
 
-export const BASE_URL = env.API_URL;
+export const BASE_URL = API_URL;
 
 export const HttpClient = axios.create({
   baseURL: BASE_URL,
   params: {
-    api_key: env.API_KEY,
+    api_key: API_KEY,
   }
 });
 
