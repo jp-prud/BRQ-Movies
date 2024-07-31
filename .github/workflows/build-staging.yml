@@ -7,9 +7,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  # run-checks:
-  #   uses: ./.github/workflows/pull-request-check.yml
-
   build-android:
     needs: run-checks
     runs-on: ubuntu-latest
