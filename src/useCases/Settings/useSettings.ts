@@ -1,9 +1,8 @@
 import { storage } from '@services';
 import { StorageKeys } from '@types';
+import BootSplash from 'react-native-bootsplash';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-
-import BootSplash from "react-native-bootsplash";
 
 export type SettingsStore = {
   createdMockCategories: boolean;

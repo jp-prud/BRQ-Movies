@@ -1,4 +1,5 @@
 import { server } from '@tests';
+
 import { MoviesService } from '../MoviesService';
 
 // Iniciar o servidor de mock antes de todos os testes
@@ -70,14 +71,14 @@ describe('MoviesService', () => {
     expect(favoriteMovies).toMatchSnapshot();
   });
 
-  test('is favorited movie', async () => { 
+  test('is favorited movie', async () => {
     const { listMovies, favoriteMovie, favoritedMovieById } = MoviesService();
 
     const movies = await listMovies();
     const movie = movies.data[0];
 
     await favoriteMovie(movie);
-    
+
     const favoritedMovie = await favoritedMovieById(movie.id);
 
     expect(movie).toEqual(favoritedMovie);

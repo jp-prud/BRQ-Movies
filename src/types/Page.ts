@@ -15,7 +15,7 @@ export interface MetaDataPage {
 
 export type PageAPI<Data> = MetaDataPageAPI & {
   results: Data[];
-}
+};
 
 export interface PageParams {
   page?: number;

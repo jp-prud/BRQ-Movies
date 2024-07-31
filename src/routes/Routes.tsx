@@ -6,8 +6,8 @@ import { ActivityIndicator, Box } from '@components';
 
 import { AppStack } from './AppStack';
 import { AuthStack } from './AuthStack';
-import { OnboardingStack } from './OnboardingStack';
 import { Stacks } from './navigationTypes';
+import { OnboardingStack } from './OnboardingStack';
 import { useRouter } from './useRouter';
 
 function LoadingScreen() {
@@ -34,9 +34,5 @@ export function Router() {
 
   const Stack = stacks[stack];
 
-  return (
-    <NavigationContainer>
-      {Stack}
-    </NavigationContainer>
-  );
+  return <NavigationContainer>{Stack}</NavigationContainer>;
 }

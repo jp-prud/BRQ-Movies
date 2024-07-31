@@ -6,8 +6,8 @@ export const SignInFormSchema = z.object({
       required_error: 'Username is required',
     })
     .min(1, {
-      message: 'Username is required'
-  }),
+      message: 'Username is required',
+    }),
   password: z
     .string({
       required_error: 'Password is required',
@@ -19,4 +19,7 @@ export const SignInFormSchema = z.object({
 
 export type SignInFormSchemaTypes = z.infer<typeof SignInFormSchema>;
 
-export const DEFAULT_SIGNIN_FORM_VALUES: SignInFormSchemaTypes = { username: '', password: '' };
+export const DEFAULT_SIGNIN_FORM_VALUES: SignInFormSchemaTypes = {
+  username: '',
+  password: '',
+};

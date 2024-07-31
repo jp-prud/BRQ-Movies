@@ -1,7 +1,8 @@
-import { authCredentials, renderHook, server, waitFor } from "@tests";
-import { SignInProps } from "@types";
-import { useSignIn } from "@useCases";
-import { AuthService } from "../AuthService";
+import { authCredentials, renderHook, server, waitFor } from '@tests';
+import { SignInProps } from '@types';
+import { useSignIn } from '@useCases';
+
+import { AuthService } from '../AuthService';
 
 beforeAll(() => {
   server.listen();
@@ -31,14 +32,14 @@ jest.mock('@context', () => {
   };
 });
 
-describe('AuthService', () => { 
-  it('should return username when user signIn', async () => { 
+describe('AuthService', () => {
+  it('should return username when user signIn', async () => {
     const { signIn } = AuthService();
 
     const crendentials: SignInProps = {
       username: 'user',
-      password: '123'
-    }
+      password: '123',
+    };
 
     const response = await signIn(crendentials);
 
@@ -50,9 +51,9 @@ describe('AuthService', () => {
 
     const crendentials: SignInProps = {
       username: 'invalid_user',
-      password: '123'
+      password: '123',
     };
-  
+
     try {
       await signIn(crendentials);
     } catch (error) {
@@ -60,22 +61,20 @@ describe('AuthService', () => {
     }
   });
 
-  it.skip('should load auth credentials', async () => { 
+  it.skip('should load auth credentials', async () => {
     const { load } = AuthService();
 
-    jest
-      .spyOn(AuthService(), 'signIn')
-      .mockResolvedValueOnce(authCredentials);
+    jest.spyOn(AuthService(), 'signIn').mockResolvedValueOnce(authCredentials);
 
-    const {result} = renderHook(() => useSignIn());
+    const { result } = renderHook(() => useSignIn());
 
     const crendentials: SignInProps = {
       username: 'user',
-      password: '123'
+      password: '123',
     };
 
     result.current.signIn(crendentials);
-    
+
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
 
     const loadedCrendentials = await load();

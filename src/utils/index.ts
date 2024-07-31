@@ -1,3 +1,3 @@
 export * from './delay';
-export * from './isAdminSignIn'
-export * from './regeneratePosterPath'
+export * from './isAdminSignIn';
+export * from './regeneratePosterPath';

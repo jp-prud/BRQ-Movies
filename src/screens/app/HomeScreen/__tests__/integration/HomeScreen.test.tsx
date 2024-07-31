@@ -1,23 +1,24 @@
-import { AppStack } from "@routes";
-import { MoviesService } from "@services";
-import { fireEvent, renderScreen, screen, server, waitFor } from "@tests";
+import { MoviesService } from '@services';
+import { fireEvent, renderScreen, screen, server, waitFor } from '@tests';
+
+import { AppStack } from '@routes';
 
 const navigate = jest.fn();
 
 beforeAll(() => {
-  server.listen()
-})
+  server.listen();
+});
 
 afterEach(() => {
   server.close();
-  jest.resetAllMocks()
-})
+  jest.resetAllMocks();
+});
 
 describe('integration: Home Screen', () => {
   test('Details Movie Flow', async () => {
     const { listMovies } = MoviesService();
 
-    renderScreen(<AppStack initialRouteName="HomeScreen" />)
+    renderScreen(<AppStack initialRouteName="HomeScreen" />);
 
     await waitFor(() => {
       expect(screen.getByText('Todos os filmes')).toBeTruthy();
@@ -30,10 +31,10 @@ describe('integration: Home Screen', () => {
     });
 
     const movieItemTitle = movies.data[0].title;
-    
+
     await waitFor(() => {
       expect(screen.getByTestId(movieItemTitle)).toBeTruthy();
-    })
+    });
 
     fireEvent.press(screen.getByTestId(movieItemTitle));
 
@@ -42,5 +43,5 @@ describe('integration: Home Screen', () => {
         movieId: movieItemTitle,
       });
     });
-  })
-})
+  });
+});
