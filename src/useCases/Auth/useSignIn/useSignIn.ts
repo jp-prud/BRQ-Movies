@@ -1,5 +1,5 @@
 import { useAuthContext } from '@context';
-import { AuthService, ResponseErrorProps } from '@services';
+import { AuthService } from '@services';
 import { useMutation } from '@tanstack/react-query';
 import { AuthCredentials, MutationKeys, MutationOptions, SignInProps } from '@types';
 
@@ -8,7 +8,7 @@ export function useSignIn(options?: MutationOptions<AuthCredentials, SignInProps
 
   const { saveCredentials } = useAuthContext();
 
-  const { isPending, isSuccess, isError, mutateAsync } = useMutation<AuthCredentials, unknown, SignInProps>({
+  const { isPending, isSuccess, isError, mutate } = useMutation<AuthCredentials, unknown, SignInProps>({
     mutationKey: [MutationKeys.sigIn],
     mutationFn: credentials => signIn(credentials),
     onSuccess: async data => {
@@ -18,7 +18,9 @@ export function useSignIn(options?: MutationOptions<AuthCredentials, SignInProps
         options.onSuccess(data);
       }
     },
-    onError: () => {
+    onError: error => {
+      console.log(error)
+
       if (options?.onError) {
         options.onError(options.errorMessage);
       }
@@ -29,6 +31,6 @@ export function useSignIn(options?: MutationOptions<AuthCredentials, SignInProps
     isPending,
     isSuccess,
     isError,
-    signIn: mutateAsync,
+    signIn: mutate,
   };
 }

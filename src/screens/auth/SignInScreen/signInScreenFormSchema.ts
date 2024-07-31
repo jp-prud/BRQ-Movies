@@ -1,6 +1,3 @@
-import {
-  ENV,
-} from "@env"
 import { z } from 'zod';
 
 export const SignInFormSchema = z.object({
@@ -22,7 +19,4 @@ export const SignInFormSchema = z.object({
 
 export type SignInFormSchemaTypes = z.infer<typeof SignInFormSchema>;
 
-export const DEFAULT_SIGNIN_FORM_VALUES: SignInFormSchemaTypes =
-  ENV === 'development'
-    ? { username: 'user', password: '123', }
-    : { username: '', password: '' };
+export const DEFAULT_SIGNIN_FORM_VALUES: SignInFormSchemaTypes = { username: '', password: '' };

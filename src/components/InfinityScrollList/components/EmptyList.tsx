@@ -23,7 +23,7 @@ export function EmptyList({
   );
 
   if (loading) {
-    component = <ActivityIndicator color="primary" />;
+    component = <ActivityIndicator />;
   }
 
   if (error) {
@@ -32,7 +32,7 @@ export function EmptyList({
         <Text bold preset="paragraphMedium" mb="s16">
           {errorMessage}
         </Text>
-        <Button text="recarregar" onPress={refetch} />
+        <Button text="Recarregar" onPress={refetch} />
       </>
     );
   }

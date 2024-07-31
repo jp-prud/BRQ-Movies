@@ -13,7 +13,7 @@ import { images } from '../../../assets';
 import { useSignInScreen } from './useSignInScreen';
 
 export function SignInScreen({ navigation }: AuthScreenProps<'SignInScreen'>) {
-  const { control, onSubmit, isSubmitting } = useSignInScreen();
+  const { control, onSubmit, isSubmitting, isDirty } = useSignInScreen();
 
   return (
     <Screen>
@@ -47,7 +47,7 @@ export function SignInScreen({ navigation }: AuthScreenProps<'SignInScreen'>) {
             <Button 
               text="Entrar" 
               onPress={onSubmit} 
-              disabled={isSubmitting} 
+              disabled={isSubmitting || !isDirty} 
               loading={isSubmitting} 
             />
 

@@ -14,25 +14,27 @@ import {
 export function useSignInScreen() {
   const { showToast } = useToastService()
 
-  const { control, handleSubmit, formState: { isSubmitting } } = useForm<SignInFormSchemaTypes>({
+  const { control, handleSubmit, formState: { isSubmitting, isDirty } } = useForm<SignInFormSchemaTypes>({
     defaultValues: DEFAULT_SIGNIN_FORM_VALUES,
     resolver: zodResolver(SignInFormSchema),
     mode: 'onChange'
   });
 
   const { signIn } = useSignIn({
+    errorMessage: 'An error occurred while login in',
     onError: (error) => {
-      showToast({ type: 'info', message: 'An error occurred while login in'});
+      showToast({ type: 'info', message: error});
     }
   })
 
-  const onSubmit = handleSubmit(async (data: SignInProps) => {
-    await signIn(data)
+  const onSubmit = handleSubmit((data: SignInProps) => {
+    signIn(data)
   });
 
   return {
     control,
     onSubmit,
-    isSubmitting
+    isSubmitting,
+    isDirty
   };
 }
