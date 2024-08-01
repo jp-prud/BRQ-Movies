@@ -72,8 +72,6 @@ export function MoviesService() {
     movieId: MovieProps['id'],
     page: number = 1,
   ): Promise<Page<MovieProps>> {
-    console.log('movieId', movieId);
-
     const { toPageModel } = APIMapper();
     const { data } = await HttpClient.get<PageAPI<MoviePropsAPI>>(
       `/movie/${movieId}/similar?language=en-US&page=${page}`,
