@@ -30,7 +30,7 @@ export function DetailsMovieScreen({
   }
 
   return (
-    <Screen canGoBack isLoading={isLoading} title="Movie Details" scrollable>
+    <Screen canGoBack isLoading={isLoading} title="Movie Details" scrollable testID='details-screen'>
       <Box
         overflow="hidden"
         borderRadius="s8"
@@ -70,6 +70,7 @@ export function DetailsMovieScreen({
             renderIf={<ActivityIndicator size="large" />}
             renderElse={
               <FlatList
+                testID='similar-movies-list'
                 data={similars?.data}
                 renderItem={renderItem}
                 horizontal

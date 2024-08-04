@@ -1,9 +1,7 @@
 import { MoviesService } from '@services';
-import { fireEvent, renderScreen, screen, server, waitFor } from '@tests';
+import { fireEvent, mockedNavigate, renderScreen, screen, server, waitFor } from '@tests';
 
 import { AppStack } from '@routes';
-
-const navigate = jest.fn();
 
 beforeAll(() => {
   server.listen();
@@ -14,7 +12,21 @@ afterEach(() => {
   jest.resetAllMocks();
 });
 
-describe('integration: Home Screen', () => {
+describe('integration: <HomeScreen />', () => {
+  it.skip('should sign out', async () => { 
+    renderScreen(<AppStack initialRouteName="HomeScreen" />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId('sign-out')).toBeTruthy();
+    });
+    
+    fireEvent.press(screen.getByTestId('sign-out'));
+
+    await waitFor(() => {
+      expect(screen.getByTestId('sign-in')).toBeTruthy();
+    });
+  });
+
   test('Details Movie Flow', async () => {
     const { listMovies } = MoviesService();
 
@@ -30,17 +42,18 @@ describe('integration: Home Screen', () => {
       expect(movies.data.length).toBeGreaterThan(0);
     });
 
-    const movieItemTitle = movies.data[0].title;
+    const movieItemId = movies.data[0].id;
+    const testId = `movie-item-${movieItemId}`;
 
     await waitFor(() => {
-      expect(screen.getByTestId(movieItemTitle)).toBeTruthy();
+      expect(screen.getByTestId(testId)).toBeTruthy();
     });
 
-    fireEvent.press(screen.getByTestId(movieItemTitle));
+    fireEvent.press(screen.getByTestId(testId));
 
     await waitFor(() => {
-      expect(navigate).toHaveBeenCalledWith('DetailsMovieScreen', {
-        movieId: movieItemTitle,
+      expect(mockedNavigate).toHaveBeenCalledWith('DetailsMovieScreen', {
+        movieId: movieItemId,
       });
     });
   });

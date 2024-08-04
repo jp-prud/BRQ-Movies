@@ -15,7 +15,7 @@ export function AuthService() {
       };
     }
 
-    throw new Error(INVALID_CREDENTIALS_ERROR_MESSAGE);
+   return Promise.reject(INVALID_CREDENTIALS_ERROR_MESSAGE);
   }
 
   async function save(authCredentials: AuthCredentials): Promise<void> {

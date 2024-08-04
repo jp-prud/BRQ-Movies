@@ -24,6 +24,7 @@ export function Toast() {
 
   return (
     <Box
+      testID='toast-message'
       height={HEIGHT_TOAST_CONTAINER}
       justifyContent={positionContent}
       {...$boxStyles}>

@@ -6,15 +6,20 @@ import { SignInScreen } from '../screens';
 
 import {
   AuthStackParamList,
-  NAVIGATOR_STACK_SCREEN_OPTIONS,
+  NAVIGATOR_STACK_SCREEN_OPTIONS
 } from './navigationTypes';
+
+
+interface Props {
+  initialRouteName?: keyof AuthStackParamList;
+}
 
 const { Navigator, Screen } = createNativeStackNavigator<AuthStackParamList>();
 
-export function AuthStack() {
+export function AuthStack({ initialRouteName = 'SignInScreen' }: Props) {
   return (
     <Navigator
-      initialRouteName="SignInScreen"
+      initialRouteName={initialRouteName}
       screenOptions={NAVIGATOR_STACK_SCREEN_OPTIONS}>
       <Screen name="SignInScreen" component={SignInScreen} />
     </Navigator>

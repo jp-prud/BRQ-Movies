@@ -4,6 +4,7 @@ import { ActivityIndicator } from '../ActivityIndicator/ActivityIndicator';
 import { Icon } from '../Icon/Icon';
 import { RenderIfElse } from '../RenderIfElse/RenderIfElse';
 
+import { Box } from '../Box/Box';
 import { useFavoriteIcon } from './useFavoriteIcon';
 
 interface FavoriteIconProps {
@@ -18,15 +19,9 @@ export function FavoriteIcon({ movie }: FavoriteIconProps) {
       condition={isPending}
       renderIf={<ActivityIndicator />}
       renderElse={
-        <RenderIfElse
-          condition={!!favorited}
-          renderIf={
-            <Icon name="heartFill" color="primary" onPress={handleFavorite} />
-          }
-          renderElse={
-            <Icon name="heart" color="primary" onPress={handleFavorite} />
-          }
-        />
+        <Box testID={`favorite-icon-${favorited ? 'favorited' : 'not-favorited'}`}>
+          <Icon name={favorited ? 'heartFill' : 'heart'} onPress={handleFavorite} />
+        </Box>
       }
     />
   );

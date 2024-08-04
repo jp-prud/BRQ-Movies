@@ -8,6 +8,7 @@ import { FavoriteIcon } from '../FavoriteIcon/FavoriteIcon';
 
 type MovieItemProps = BoxProps & {
   movie: MovieProps;
+  index?: number;
 };
 
 export function MovieItem({ movie, ...props }: MovieItemProps) {
@@ -19,6 +20,7 @@ export function MovieItem({ movie, ...props }: MovieItemProps) {
 
   return (
     <TouchableOpacityBox
+      testID={`movie-item-${props.index}`}
       onPress={handlePressDetails}
       flex={1}
       position="relative"

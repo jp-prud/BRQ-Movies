@@ -21,8 +21,8 @@ import { useHomeScreen } from './useHomeScreen';
 export function HomeScreen({}: AppScreenProps<'HomeScreen'>) {
   const { moviesData, favoriteMoviesData, signOut } = useHomeScreen();
 
-  function renderItem({ item }: ListRenderItemInfo<MovieProps>) {
-    return <MovieItem movie={item} />;
+  function renderItem({ item, index }: ListRenderItemInfo<MovieProps>) {
+    return <MovieItem movie={item} index={index} />;
   }
 
   function renderHomeContent() {
@@ -33,6 +33,7 @@ export function HomeScreen({}: AppScreenProps<'HomeScreen'>) {
             label: 'Todos os filmes',
             content: (
               <InfinityScrollList
+                testID='movies-list'
                 getList={MoviesService().listMovies}
                 renderItem={renderItem}
                 queryKey={QueryKeys.getMovie}
@@ -51,6 +52,7 @@ export function HomeScreen({}: AppScreenProps<'HomeScreen'>) {
             label: 'Filmes Favoritos',
             content: (
               <FlatList
+                testID='favorite-movies-list'
                 data={favoriteMoviesData!.list}
                 keyExtractor={item => String(item.id)}
                 renderItem={renderItem}
@@ -70,7 +72,7 @@ export function HomeScreen({}: AppScreenProps<'HomeScreen'>) {
   }
 
   return (
-    <Screen>
+    <Screen testID='home-screen'>
       <Box
         flexDirection="row"
         alignItems="center"
@@ -78,7 +80,7 @@ export function HomeScreen({}: AppScreenProps<'HomeScreen'>) {
         mb="s16">
         <Text preset="headingMedium">BRQ Movies</Text>
 
-        <Icon name="arrowReturn" onPress={signOut} />
+        <Icon name="arrowReturn" testId='sign-out' onPress={signOut} />
       </Box>
 
       <RenderIfElse

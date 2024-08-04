@@ -2,18 +2,15 @@ import { server } from '@tests';
 
 import { MoviesService } from '../MoviesService';
 
-// Iniciar o servidor de mock antes de todos os testes
 beforeAll(() => {
   server.listen();
 });
 
-// Resetar os handlers do servidor após cada teste para evitar poluição entre testes
 afterEach(() => {
   server.resetHandlers();
   jest.clearAllMocks();
 });
 
-// Parar o servidor após todos os testes
 afterAll(() => {
   server.close();
 });
@@ -37,11 +34,11 @@ describe('MoviesService', () => {
     const { listMovies, getMovieById } = MoviesService();
 
     const movies = await listMovies();
+
     const movie = await getMovieById(movies.data[0].id);
 
     expect(movie).toHaveProperty('title', movies.data[0].title);
     expect(movie).toHaveProperty('id', movies.data[0].id);
-    // Adicione mais verificações conforme necessário
   });
 
   it('should render favorite movies', async () => {

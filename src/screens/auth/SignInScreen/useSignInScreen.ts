@@ -16,7 +16,8 @@ export function useSignInScreen() {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting, isDirty },
+    setError,
+    formState: { isSubmitting, isDirty, errors },
   } = useForm<SignInFormSchemaTypes>({
     defaultValues: DEFAULT_SIGNIN_FORM_VALUES,
     resolver: zodResolver(SignInFormSchema),
@@ -25,8 +26,10 @@ export function useSignInScreen() {
 
   const { signIn } = useSignIn({
     errorMessage: 'An error occurred while login in',
-    onError: error => {
-      showToast({ type: 'info', message: error });
+    onError: error => { 
+      setError('root', { message: error });
+
+      showToast({ type: 'info', message: String(error) });
     },
   });
 
@@ -39,5 +42,6 @@ export function useSignInScreen() {
     onSubmit,
     isSubmitting,
     isDirty,
+    errors,
   };
 }

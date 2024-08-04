@@ -21,7 +21,7 @@ export function useFavoriteMovie(options?: MutationOptions<void>) {
     mutationKey: [MutationKeys.favoriteMovie],
     mutationFn: props => favoriteMovieService(props),
     onError: error => {
-      console.error(error);
+      console.log(error);
 
       if (options?.onError) {
         options.onError(error);

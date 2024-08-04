@@ -42,9 +42,9 @@ const Movie: MovieProps = {
   voteCount: 100,
 };
 
-const MoviesListAPI: MoviePropsAPI[] = [MovieAPI, MovieAPI, MovieAPI];
+const MoviesListAPI: MoviePropsAPI[] = [MovieAPI, MovieAPI, MovieAPI].map((movie, index) => ({ ...movie, id: index }));
 
-const MoviesList: MovieProps[] = [Movie, Movie, Movie];
+const MoviesList: MovieProps[] = [Movie, Movie, Movie].map((movie, index) => ({ ...movie, id: index }));
 
 const MoviesAPIListResponse: PageAPI<MoviePropsAPI> = {
   page: 1,

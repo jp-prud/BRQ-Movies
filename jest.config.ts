@@ -5,7 +5,7 @@ const config: Config = {
   setupFiles: ['<rootDir>/src/test/jestSetup.ts'],
   setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect'],
   moduleDirectories: ['node_modules', './src/test'],
-  modulePathIgnorePatterns: ['.*/mockedData/.*'],
+  modulePathIgnorePatterns: ['.*/mockedData/.*', 'e2e'],
   testTimeout: 15000,
   collectCoverageFrom: [
     'src/{hooks,services,useCases,screens}/**/*.{js,jsx,ts,tsx}',
