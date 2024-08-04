@@ -32,7 +32,7 @@ O projeto foi visa atender os seguintes requisitos:
 
 ## Implementação extra
 
-- CI/DV
+- CI/CD
    - Pensando na escalabilidade do projeto, adicionei duas pipelines simples no projeto. Uma será disparada no momento da abertura de um PR para a branch principal, no qual irá validar o que foi desenvolvido. A segunda, é disparada manualmente através do painel e tem como objetivo gerar o build do projeto.
 
 - Busca infinita

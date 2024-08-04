@@ -21,7 +21,7 @@ export function MoviesService() {
     return toPageModel(data, MovieMapper().toPresentation);
   }
 
-  function listFavoriteMovies(): Promise<FavoriteMovieProps[] | null> {
+function listFavoriteMovies(): Promise<FavoriteMovieProps[] | null> {
     return storage.getItem<FavoriteMovieProps[]>(StorageKeys.FavoriteMovies);
   }
 
