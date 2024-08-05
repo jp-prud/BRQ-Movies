@@ -52,6 +52,14 @@ Exemplificação do que foi desenvolvido a nível de arquitetura.
 |:---:|
 | Arquitetura |
 
+## Testes
+
+Visualização do coverage do dia 05/08
+
+| ![Coverage](./.github/resources/Coverage.png) |
+|:---:|
+| Coverage |
+
 ## Bibliotecas Utilizadas
 
 Durante o desenvolvimento do projeto, as seguintes bibliotecas foram utilizadas para aprimorar a funcionalidade e a aparência da aplicação:
