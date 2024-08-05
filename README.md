@@ -62,9 +62,7 @@ Visualização do coverage do dia 05/08
 |:---:|
 | Coverage |
 
-| ![E2E](https://imgur.com/iz2I10C) |
-|:---:|
-| E2E |
+Para visualizar os testes E2E, siga o link: [Testes E2E](https://imgur.com/iz2I10C)
 
 ## Bibliotecas Utilizadas
 
