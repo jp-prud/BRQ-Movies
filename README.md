@@ -64,9 +64,7 @@ Visualização do coverage do dia 05/08
 
 Visualização dos testes E2E do dia 05/08
 
-| ![E2E](./.github/resources/e2e.mp4) |
-|:---:|
-| E2E |
+<video src="./.github/resources/e2e.mp4" />
 
 ## Bibliotecas Utilizadas
 
