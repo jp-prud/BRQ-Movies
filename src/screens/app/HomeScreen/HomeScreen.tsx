@@ -41,6 +41,7 @@ export function HomeScreen({}: AppScreenProps<'HomeScreen'>) {
                   contentContainerStyle: { gap: 16 },
                   columnWrapperStyle: {
                     justifyContent: 'space-between',
+                    alignItems: 'center',
                     gap: 16,
                   },
                   numColumns: 2,

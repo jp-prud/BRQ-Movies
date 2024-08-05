@@ -7,6 +7,7 @@ import {
   StorageKeys,
 } from '@types';
 
+import { delay } from '@utils';
 import { storage } from '../StorageService/storage';
 import { HttpClient } from '../utils/HttpClient';
 import { APIMapper } from '../utils/mappers/APIMapper';
@@ -14,6 +15,8 @@ import { MovieMapper } from '../utils/mappers/MovieMapper';
 
 export function MoviesService() {
   async function listMovies(page: number = 1): Promise<Page<MovieProps>> {
+    await delay(1000);
+
     const { toPageModel } = APIMapper();
     const { data } = await HttpClient.get<PageAPI<MoviePropsAPI>>(
       `/movie/popular?language=en-US&page=${page}`,

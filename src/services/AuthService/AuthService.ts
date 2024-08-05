@@ -9,7 +9,8 @@ export function AuthService() {
   const AUTH_KEY = StorageKeys.Auth;
 
   async function signIn(credentials: SignInProps): Promise<AuthCredentials> {
-    if (isAdminSignIn(credentials)) {
+   
+ if (isAdminSignIn(credentials)) {
       return {
         username: credentials.username,
       };

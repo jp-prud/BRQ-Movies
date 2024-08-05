@@ -6,6 +6,10 @@ import { QueryKeys } from '@types';
 
 import { usePaginatedList } from '@hooks';
 
+import { ActivityIndicator } from '../ActivityIndicator/ActivityIndicator';
+import { Box } from '../Box/Box';
+import { RenderIfElse } from '../RenderIfElse/RenderIfElse';
+
 import { EmptyList, EmptyListProps } from './components/EmptyList';
 type ItemTConstraints = { id: number | string };
 
@@ -34,35 +38,48 @@ export function InfinityScrollList<ItemT extends ItemTConstraints>({
   const flatListRef = React.useRef<FlatList<ItemT>>(null);
   useScrollToTop(flatListRef);
 
+  function renderListContent() {
+    return (
+      <FlatList
+        ref={flatListRef}
+        showsVerticalScrollIndicator={false}
+        data={list}
+        keyExtractor={item => item.id.toString()}
+        renderItem={renderItem}
+        onEndReached={fetchNextPage}
+        onEndReachedThreshold={0.1}
+        refreshing={isLoading}
+        refreshControl={
+          <RefreshControl refreshing={isLoading} onRefresh={refresh} />
+        }
+        ListEmptyComponent={
+          <EmptyList
+            refetch={refresh}
+            error={isError}
+            loading={isLoading}
+            {...emptyListProps}
+          />
+        }
+        {...flatListProps}
+        contentContainerStyle={[
+          {
+            flex: list.length === 0 ? 1 : undefined,
+          },
+          flatListProps?.contentContainerStyle,
+        ]}
+      />
+    );
+  }
+
   return (
-    <FlatList
-      testID={testID}
-      ref={flatListRef}
-      showsVerticalScrollIndicator={false}
-      data={list}
-      keyExtractor={item => item.id.toString()}
-      renderItem={renderItem}
-      onEndReached={fetchNextPage}
-      onEndReachedThreshold={0.1}
-      refreshing={isLoading}
-      refreshControl={
-        <RefreshControl refreshing={isLoading} onRefresh={refresh} />
+    <RenderIfElse
+      condition={!isLoading}
+      renderIf={renderListContent()}
+      renderElse={
+        <Box flex={1} alignItems="center" justifyContent="center">
+          <ActivityIndicator size="large" />
+        </Box>
       }
-      ListEmptyComponent={
-        <EmptyList
-          refetch={refresh}
-          error={isError}
-          loading={isLoading}
-          {...emptyListProps}
-        />
-      }
-      {...flatListProps}
-      contentContainerStyle={[
-        {
-          flex: list.length === 0 ? 1 : undefined,
-        },
-        flatListProps?.contentContainerStyle,
-      ]}
     />
   );
 }
