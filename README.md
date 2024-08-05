@@ -62,10 +62,6 @@ Visualização do coverage do dia 05/08
 |:---:|
 | Coverage |
 
-Visualização dos testes E2E do dia 05/08
-
-<video src="./.github/resources/e2e.mp4" />
-
 ## Bibliotecas Utilizadas
 
 Durante o desenvolvimento do projeto, as seguintes bibliotecas foram utilizadas para aprimorar a funcionalidade e a aparência da aplicação:
