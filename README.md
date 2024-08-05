@@ -62,6 +62,10 @@ Visualização do coverage do dia 05/08
 |:---:|
 | Coverage |
 
+| ![E2E](https://imgur.com/iz2I10C) |
+|:---:|
+| E2E |
+
 ## Bibliotecas Utilizadas
 
 Durante o desenvolvimento do projeto, as seguintes bibliotecas foram utilizadas para aprimorar a funcionalidade e a aparência da aplicação:
