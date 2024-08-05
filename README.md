@@ -5,6 +5,8 @@
 ## Sobre o App
 - O aplicativo foi construído utilizando padrões de arquitetura limpa e modularizada, visando o projeto ser escalavel. [The Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 
+É possível fazer o download do APP através da Google Play, através do link: [Ambiente](https://play.google.com/apps/internaltest/4701704331720763539).
+
 ## Requisitos
 
 O projeto foi visa atender os seguintes requisitos:
