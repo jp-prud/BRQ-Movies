@@ -41,6 +41,7 @@ export function InfinityScrollList<ItemT extends ItemTConstraints>({
   function renderListContent() {
     return (
       <FlatList
+        testID={testID}
         ref={flatListRef}
         showsVerticalScrollIndicator={false}
         data={list}

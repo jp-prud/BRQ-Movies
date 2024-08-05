@@ -17,7 +17,7 @@ describe('<DetailsMovieScreen />', () => {
   });
 
   it('should navigate to the details screen', async () => {
-    await element(by.id('movie-item-0')).atIndex(0).tap()
+    await element(by.id('movie-item-0')).tap()
     await expect(element(by.id('details-screen'))).toBeVisible();
   });
 
@@ -38,7 +38,6 @@ describe('<DetailsMovieScreen />', () => {
 
   it('should favorite a movie', async () => { 
     await element(by.id('movie-item-0')).tap();
-    await element(by.id(/favorite-icon-(favorited|not-favorited)/)).atIndex(0).tap();
+    await element(by.id(/favorite-icon-(favorited|not-favorited)/)).atIndex(1).tap();
   });
-
 });

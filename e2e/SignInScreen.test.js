@@ -4,7 +4,7 @@ describe('<SignInScreen />', () => {
   });
 
   beforeEach(async () => {
-    // await device.reloadReactNative();
+    await device.reloadReactNative();
     await device.launchApp({delete: true});
   });
 

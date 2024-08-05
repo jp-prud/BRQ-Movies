@@ -18,8 +18,8 @@ describe('<HomeScreen />', () => {
   });
 
   it.skip('should render movie list', async () => {
-    await expect(element(by.id('movies-list'))).toBeVisible();
-    await expect(element(by.id('movie-item-0'))).toBeVisible();   
+    expect(element(by.id('movies-list'))).toBeVisible();
+    expect(element(by.id('movie-item-0'))).toBeVisible();   
   });
 
   it.skip('should render favorite movie list when the favorite button is clicked', async () => {
