@@ -5,7 +5,11 @@
 ## Sobre o App
 - O aplicativo foi construído utilizando padrões de arquitetura limpa e modularizada, visando o projeto ser escalavel. [The Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 
-É possível fazer o download do APP através da Google Play, através do link: [Ambiente](https://play.google.com/apps/internaltest/4701704331720763539).
+
+## Downloads
+
+- [Play Store](https://play.google.com/apps/internaltest/4701704331720763539).
+- [GitHub](https://github.com/jp-prud/BRQ-Movies/releases/tag/1.0.0).
 
 ## Requisitos
 
