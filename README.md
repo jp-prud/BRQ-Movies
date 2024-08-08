@@ -72,15 +72,16 @@ Para visualizar os testes E2E, siga o link: [Testes E2E](https://imgur.com/iz2I1
 
 Durante o desenvolvimento do projeto, as seguintes bibliotecas foram utilizadas para aprimorar a funcionalidade e a aparência da aplicação:
 
--  react-navigation: Responsável pela navegação e gerenciar as transições entre telas.
--  react-native-mmkv: Armazenamento de dados de maneira eficiente e segura.
--  shopify-restyle: Estilização de componentes, seguindo padrões reutilizáveis.
--  zod: Utilizada para validação de dados, garantindo a integridade das informações.
--  react-native-reanimated: Animações.
--  react-query: Gerenciamento de estado e cache de dados.
--  react-native-svg: Renderizar  SVG na aplicação.
--  react-hook-form: Gerenciar formulários de maneira eficiente.
--  mmkv: Gerenciar localstorage,
+| Biblioteca             | Justificativa |
+| :--------------------- | :------------ |
+| react-navigation    | O react-navigation é uma biblioteca popular para gerenciar a navegação em aplicativos React Native. Ela fornece um conjunto de componentes e APIs para implementar navegação entre telas, navegação em pilhas e abas, e navegação em gavetas, facilitando a criação de fluxos de navegação complexos. Sua escolha é ideal para criar uma experiência de usuário fluida e consistente, com suporte a transições animadas e gerenciamento de estado de navegação |
+| react-native-mmkv   | O react-native-mmkv é uma biblioteca que oferece acesso rápido e eficiente para armazenamento de dados no dispositivo utilizando o MMKV (uma alternativa ao AsyncStorage padrão do React Native). Sua escolha pode se dar pela performance superior em comparação com outras opções de armazenamento local, especialmente para dados mais pesados. |
+| shopify-restyle      | O restyle é uma biblioteca que oferece um sistema de design-first para estilização em React Native. Permite criar e reutilizar componentes estilizados de maneira consistente, promovendo uma padronização visual e facilitando a manutenção da interface do aplicativo. |
+| zod                 | O zod é uma biblioteca de validação de esquema altamente eficiente e tipada, sendo uma escolha para garantir a integridade dos dados recebidos da API ou fornecidos pelos usuários. Com seu sistema de tipagem robusto, auxilia na prevenção de erros comuns de tipagem e validação de dados. |
+| react-query         | O react-query é uma biblioteca moderna para gerenciamento de estado e caching de dados, útil para aplicativos que dependem fortemente de dados externos, como a API "The Movie DB". Sua escolha pode estar relacionada à facilidade de fazer requisições, manipular e armazenar em cache os dados de forma eficiente. |
+| react-hook-form     | Esta biblioteca é escolhida por simplificar a lógica de formulários no React Native. Oferece um conjunto de hooks que facilitam a validação, manipulação e envio de dados de formulários, reduzindo a complexidade do código e melhorando a manutenção. |
+| react-native-mmkv   | O react-native-mmk é uma eficiente e produtiva biblioteca que oferece uma interface simples e flexível para manipulações do storage do dispositivo. |
+| axios               | O axios é uma escolha comum para fazer requisições HTTP no React Native. Oferece uma interface simples e flexível para realizar chamadas de API, com suporte a interceptores, facilitando o tratamento de erros, manipulação de requisições e respostas, além de integração bem estabelecida com o ecossistema do React Native. |
 
 ## Instalação
 
